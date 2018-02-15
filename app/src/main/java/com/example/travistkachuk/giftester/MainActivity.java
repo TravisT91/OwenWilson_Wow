@@ -10,6 +10,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.jakewharton.rxbinding2.view.RxView;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.disposables.Disposable;
@@ -18,6 +19,7 @@ import io.reactivex.functions.Consumer;
 public class MainActivity extends Activity {
     int[] wows = {R.raw.deep_wow,R.raw.gentle_wow,R.raw.loud_wow,R.raw.uplifting_wow,R.raw.whisper_wow};
     private Disposable disposable;
+    private Random random = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +69,7 @@ public class MainActivity extends Activity {
     }
 
     int getRandomWow(){
-        int select = (int)(Math.random() * wows.length);
+        int select = random.nextInt(wows.length + 1);
         return wows[select];
     }
 }
