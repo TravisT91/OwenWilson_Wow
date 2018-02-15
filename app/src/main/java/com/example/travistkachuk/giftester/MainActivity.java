@@ -52,8 +52,7 @@ public class MainActivity extends Activity {
             mp.start();
             mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
-                public void onCompletion(MediaPlayer mediaPlayer) {
-                    mp.release();
+                public void onCompletion(MediaPlayer mediaPlayer) {mp.release();
                 }
             });
         } catch (Exception e) {
@@ -69,7 +68,6 @@ public class MainActivity extends Activity {
     }
 
     int getRandomWow(){
-        int select = random.nextInt(wows.length + 1);
-        return wows[select];
+        return wows[random.nextInt(wows.length + 1)];
     }
 }
